@@ -10,13 +10,13 @@ func main() {
 	fmt.Println("Введите второе число")
 	fmt.Scan(&b)
 
-	fmt.Println("Сумма чисел ровна: ", a+b)
-	fmt.Println("Разность чисел ровна: ", a-b)
-	fmt.Println("Произведение чисел равно: ", a*b)
+	fmt.Printf("%d + %d = %d\n", a, b, a+b)
+	fmt.Printf("%d - %d = %d\n", a, b, a-b)
+	fmt.Printf("%d * %d = %d\n", a, b, a*b)
 	if b != 0 {
-		fmt.Println("Частное двух чисел равно: ", float32(a/b))
-		fmt.Println("Целочисленное деление двух чисел равно: ", a/b)
-		fmt.Println("Остаток от деления двух чисел равен: ", a%b)
+		fmt.Printf("%d * %d = %.1f\n", a, b, float32(a)/float32(b))
+		fmt.Printf("%d // %d = %d\n", a, b, a/b)
+		fmt.Printf("%d %% %d = %d\n", a, b, a%b)
 	} else {
 		fmt.Println("Делить на 0 нельзя")
 	}
