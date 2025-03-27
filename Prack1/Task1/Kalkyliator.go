@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func Kalkyliator() {
+func main() {
 	var a, b int
 
 	fmt.Println("Введите первое число")
