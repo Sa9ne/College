@@ -11,14 +11,19 @@ func main() {
 	fmt.Scan(&B)
 
 	// Первый способ
-	fmt.Printf("A = %.1f", B)
-	fmt.Printf("\nB = %.1f", A)
+	A = B
+	B = A
+
+	fmt.Printf("A = %.1f", A)
+	fmt.Printf("\nB = %.1f", B)
 
 	// Второй способ
 	NewPeremen := B
-	fmt.Printf("\n\nA = %.1f", NewPeremen)
-	NewPeremen = A
-	fmt.Printf("\nB = %.1f", NewPeremen)
+	B = A
+	A = NewPeremen
+
+	fmt.Printf("\nB = %.1f", B)
+	fmt.Printf("\n\nA = %.1f", A)
 
 	// Третий способ
 	A = A + B
