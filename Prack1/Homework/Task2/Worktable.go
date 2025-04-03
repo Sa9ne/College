@@ -7,7 +7,7 @@ import (
 
 func main() {
 	var FirsClass, SecClass, ThirdClass int
-	var AllTable float64
+	var FirstWorkTable, SecWorkTable, ThiWorkTable float64
 
 	fmt.Print("В первом классе: ")
 	fmt.Scan(&FirsClass)
@@ -16,7 +16,11 @@ func main() {
 	fmt.Print("В первом классе: ")
 	fmt.Scan(&ThirdClass)
 
-	AllTable = float64(FirsClass+SecClass+ThirdClass) / 2
+	FirstWorkTable = float64(FirsClass) / 2
+	SecWorkTable = float64(SecClass) / 2
+	ThiWorkTable = float64(ThirdClass) / 2
 
-	fmt.Printf("Нужно %.0f парт(ы)", math.Ceil(AllTable))
+	AllWorkTable := math.Ceil(FirstWorkTable) + math.Ceil(SecWorkTable) + math.Ceil(ThiWorkTable)
+
+	fmt.Printf("Нужно %.0f парт(ы)", AllWorkTable)
 }
