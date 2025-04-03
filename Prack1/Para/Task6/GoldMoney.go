@@ -16,11 +16,6 @@ func main() {
 
 	TotalAnimal := Lis + Cat
 
-	if TotalAnimal == 0 {
-		fmt.Println("Животных вообще нет")
-		return
-	}
-
 	CoinPerAnimal := Money / TotalAnimal
 	CoinShapka := Money % TotalAnimal
 

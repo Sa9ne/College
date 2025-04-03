@@ -8,11 +8,6 @@ func main() {
 	fmt.Print("Введите число, которое нужно перевернуть: ")
 	fmt.Scan(&Num)
 
-	if Num < 100 || Num > 999 {
-		fmt.Println("Вы ввели не трехзначное число")
-		return
-	}
-
 	LastNum := Num % 10
 	FirstNum := Num / 100
 	MiddleNum := (Num / 10) % 10

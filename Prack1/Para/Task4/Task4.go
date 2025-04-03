@@ -3,20 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	var FiveNum, Sum int
+	var Num, Sum int
 
-	fmt.Print("Введите пятизначное число: ")
-	fmt.Scan(&FiveNum)
+	fmt.Print("Введите число: ")
+	fmt.Scan(&Num)
 
-	if (FiveNum/10000) < 1 || (FiveNum/10000) > 10 {
-		fmt.Println("Вы ввели не пятизначное число")
-		return
+	for Num > 0 {
+		Sum += Num % 10
+		Num /= 10
 	}
 
-	for i := 0; i < 5; i++ {
-		Sum += FiveNum % 10
-		FiveNum /= 10
-	}
-
-	fmt.Println("Сумма чисел ровна: ", Sum)
+	fmt.Println("Сумма чисел ровна:", Sum)
 }
