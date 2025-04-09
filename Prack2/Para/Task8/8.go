@@ -13,6 +13,11 @@ func main() {
 	fmt.Print("K = ")
 	fmt.Scan(&K)
 
+	if K > M*N {
+		fmt.Println("Нельзя")
+		return
+	}
+
 	if K%M == 0 || N%K == 0 {
 		fmt.Print("Можно")
 	} else {
