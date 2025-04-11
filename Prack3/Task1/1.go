@@ -3,54 +3,34 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"time"
 )
 
 func main() {
-	var length int
-	var lower, upper float64
+	// Ввод пользователя
+	var Range, Min, Max int
 
-	// Ввод от пользователя
-	fmt.Print("Длина списка: ")
-	fmt.Scan(&length)
+	fmt.Print("Длинна списка: ")
+	fmt.Scan(&Range)
 	fmt.Print("Нижняя граница генерации: ")
-	fmt.Scan(&lower)
+	fmt.Scan(&Min)
 	fmt.Print("Верхняя граница генерации: ")
-	fmt.Scan(&upper)
+	fmt.Scan(&Max)
 
-	rand.Seed(time.Now().UnixNano())
+	// Рандомизация числа до 100 и занесении в массив
+	var Mas []int
+	sum := 0
 
-	numbers := make([]float64, length)
-
-	for i := 0; i < length; i++ {
-		if rand.Intn(2) == 0 {
-			numbers[i] = float64(rand.Intn(int(upper)-int(lower)+1) + int(lower))
-		} else {
-			numbers[i] = lower + rand.Float64()*(upper-lower)
-		}
+	for i := 0; i < Range; i++ {
+		// В Go начиная от 1.24 добавлена более удобная функция, не надо ориентироваться на время
+		// В этой функции задается максимальный диапазон (100) и потом добавляется минимальный (50) и получается (от 50 до 99)
+		// Работает по схеме от 0 до n - 1, когда мы прибавляем +Min мы двигаем полностью конструкцию ( (100) + 50 = от 50 до 149)
+		Random := rand.Intn(Max-Min+1) + Min
+		Mas = append(Mas, Random)
+		// Суммирование массива
+		sum += Random
 	}
 
-	fmt.Printf("Сгенерированный список: %v\n", numbers)
-
-	var sum float64
-	for _, num := range numbers {
-		sum += num
-	}
-	fmt.Printf("Сумма чисел: %.2f\n", sum)
-
-	max := numbers[0]
-	for _, num := range numbers {
-		if num > max {
-			max = num
-		}
-	}
-	fmt.Printf("Максимальное число в списке: %.2f\n", max)
-
-	var evens []int
-	for _, num := range numbers {
-		if float64(int(num)) == num && int(num)%2 == 0 {
-			evens = append(evens, int(num))
-		}
-	}
-	fmt.Printf("Чётные числа: %v\n", evens)
+	// Вывод массива
+	fmt.Println("Сгенерированный массив:", Mas)
+	fmt.Println("Сумма элементов:", sum)
 }
