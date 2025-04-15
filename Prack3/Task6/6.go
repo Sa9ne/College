@@ -26,12 +26,8 @@ func main() {
 		if NumFound > max || NumFound < min {
 			fmt.Println("Вы ввели значение больше/меньше границы")
 			NumCheck = false
-			continue
-		}
-
-		if NumFound == Random {
+		} else if NumFound == Random {
 			NumCheck = true
-			break
 		} else {
 			fmt.Println("Не угадал")
 			NumCheck = false
