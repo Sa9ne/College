@@ -17,25 +17,16 @@ func main() {
 
 	if A < 0 || B < 0 {
 		fmt.Println("No")
+		return
 	}
 
-	if X+1 == A && Y+2 == B {
-		fmt.Println("Yes")
-	} else if X-1 == A && Y+2 == B {
-		fmt.Println("Yes")
-	} else if X+1 == A && Y-2 == B {
-		fmt.Println("Yes")
-	} else if X-1 == A && Y-2 == B {
-		fmt.Println("Yes")
-	} else if Y+1 == A && X+2 == B {
-		fmt.Println("Yes")
-	} else if Y-1 == A && X+2 == B {
-		fmt.Println("Yes")
-	} else if Y+1 == A && X-2 == B {
-		fmt.Println("Yes")
-	} else if Y-1 == A && X-2 == B {
+	RaznX := A - X
+	RaznY := B - Y
+
+	if (RaznX*RaznX == 1 && RaznY*RaznY == 4) || (RaznX*RaznX == 4 && RaznY*RaznY == 1) {
 		fmt.Println("Yes")
 	} else {
 		fmt.Println("No")
 	}
+
 }
