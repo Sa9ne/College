@@ -5,7 +5,7 @@ import (
 	"math/rand"
 )
 
-func InfoFIO(Students [4]string, Math []int, Russ []int, Phys []int) {
+func InfoFIO(Students [4]string, Math, Russ, Phys []int) {
 	// Спрашиваем чьи оценки вывести
 	var ChooseStudent int
 
@@ -29,7 +29,7 @@ func InfoFIO(Students [4]string, Math []int, Russ []int, Phys []int) {
 
 }
 
-func InfoSubject(Students [4]string, Math []int, Russ []int, Phys []int) {
+func InfoSubject(Students [4]string, Math, Russ, Phys []int) {
 	// Вывод пользователю
 	var ChooseSubject, ChooseAssessment int
 
