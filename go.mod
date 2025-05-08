@@ -8,15 +8,9 @@ require (
 )
 
 require (
-	github.com/fyne-io/mobile v0.1.2 // indirect
-	github.com/goki/freetype v0.0.0-20181231101311-fa8a33aabaff // indirect
-)
-
-require (
 	codeberg.org/go-fonts/liberation v0.5.0 // indirect
 	codeberg.org/go-latex/latex v0.1.0 // indirect
 	codeberg.org/go-pdf/fpdf v0.10.0 // indirect
-	fyne.io/fyne v1.4.3
 	fyne.io/systray v1.11.0 // indirect
 	git.sr.ht/~sbinet/gg v0.6.0 // indirect
 	github.com/BurntSushi/toml v1.4.0 // indirect
