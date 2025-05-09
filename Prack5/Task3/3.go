@@ -50,6 +50,10 @@ func caesarEncrypt(Data string, Shift int) string {
 	return string(result)
 }
 
+func caesarDecrypt(Data string, Shift int) string {
+	return caesarEncrypt(Data, -Shift)
+}
+
 func main() {
 	// Ввод пользователя
 	Shift := 0
@@ -77,7 +81,19 @@ func main() {
 				panic(fmt.Sprintln("Ошибка при записи в файл:", err))
 			}
 		} else if Choice == 2 {
+			// Чтение файла
+			Data, err := os.ReadFile("output.txt")
+			if err != nil {
+				panic(fmt.Sprintln("При чтении файла нашлась ошибка: ", err))
+			}
 
+			// Вызов функции дешифровки
+			encrypted := caesarDecrypt(string(Data), Shift)
+
+			err = os.WriteFile("output.txt", []byte(encrypted), 0644)
+			if err != nil {
+				panic(fmt.Sprintln("Ошибка при записи в файл:", err))
+			}
 		} else {
 			work = false
 		}
