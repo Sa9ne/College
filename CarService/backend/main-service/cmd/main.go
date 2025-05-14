@@ -1,5 +1,7 @@
 package main
 
-func main() {
+import "CarService/internal/server"
 
+func main() {
+	server.Start()
 }
