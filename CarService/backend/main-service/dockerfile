@@ -1,0 +1,21 @@
+FROM golang:1.24-alpine
+
+WORKDIR /app
+
+# Устанавливаем air
+RUN go install github.com/air-verse/air@latest
+
+COPY backend/main-service/go.mod .
+COPY backend/main-service/go.sum .
+RUN go mod download
+
+# Копируем весь бэкенд и фронтенд
+COPY backend/main-service /app
+COPY frontend /app/frontend
+COPY backend/main-service/.air.toml .
+
+# Сборка
+RUN go build -o main ./cmd
+
+CMD ["air"]
+

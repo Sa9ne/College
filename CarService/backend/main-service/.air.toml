@@ -1,0 +1,16 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -o ./tmp/main ./cmd"
+bin = "./tmp/main"
+include_ext = ["go", "tpl", "tmpl", "html"]
+
+[log]
+time = true
+
+[watch]
+  # Пути, которые отслеживаются на изменения
+  dirs = ["cmd", "internal", "frontend"]
+  exclude_dirs = ["tmp", "vendor"]
+  extensions = ["go", "html", "js", "css"]
