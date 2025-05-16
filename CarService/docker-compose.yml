@@ -3,15 +3,15 @@ version: "3.9"
 services:
   db:
     image: postgres:16
-    container_name: carservice_db
+    container_name: db
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - carservice_db_data:/var/lib/postgresql/data
     ports:
-      - "5555:5432"
+      - "5432:5432"
     env_file:
       - .env
 
@@ -19,6 +19,7 @@ services:
     build:
       context: .
       dockerfile: backend/main-service/Dockerfile
+    container_name: main-service
     ports:
       - "8080:8080"
     env_file:
@@ -27,8 +28,22 @@ services:
       - db
     volumes:
       - ./backend/main-service:/app
-      - ./frontend:/app/frontend  
+      - ./frontend:/app/frontend
 
+  auth-service:
+    build:
+      context: .
+      dockerfile: backend/auth-service/dockerfile
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - ./backend/auth-service:/app
+    command: air
 
 volumes:
-  db_data:
+  carservice_db_data:
