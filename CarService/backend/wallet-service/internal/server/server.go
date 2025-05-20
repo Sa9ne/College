@@ -15,7 +15,9 @@ func Start() {
 	database.ConnectDB()
 
 	s.Use(middleware.RequireAuth)
+
 	s.POST("/MoneyAdd", handlers.MoneyAdd)
+	s.POST("/BuyCar/:CarID", handlers.BuyCar)
 
 	err := s.Run(":8082")
 	if err != nil {

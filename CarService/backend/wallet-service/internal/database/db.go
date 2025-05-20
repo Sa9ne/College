@@ -29,5 +29,5 @@ func ConnectDB() {
 		log.Fatalf("Failed connect database: %v", errOpen)
 	}
 
-	DB.AutoMigrate(&models.Users{})
+	DB.AutoMigrate(&models.Users{}, &models.Car{}, &models.Orders{})
 }
