@@ -16,6 +16,7 @@ func Start() {
 	s.Static("/frontend", "/Users/user/important/College/CarService/frontend")
 
 	s.GET("/", handlers.LoadFrontend)
+	s.GET("/Catalog", handlers.Catalog)
 
 	err := s.Run(":8080")
 	if err != nil {
