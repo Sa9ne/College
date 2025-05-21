@@ -23,7 +23,4 @@ type Orders struct {
 	CarID     uint      `json:"car_id"`
 	UserID    uint      `json:"user_id"`
 	CreatedAt time.Time `json:"bought_at"`
-
-	User Users `gorm:"foreignKey:UserID"`
-	Car  Car   `gorm:"foreignKey:CarID"`
 }
