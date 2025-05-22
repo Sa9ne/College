@@ -13,7 +13,7 @@ func Start() {
 
 	database.ConnectDB()
 
-	s.Static("/frontend", "/Users/user/important/College/CarService/frontend")
+	s.Static("/static", "/Users/user/important/College/CarService/frontend/build/web")
 
 	s.GET("/", handlers.LoadFrontend)
 	s.GET("/Catalog", handlers.Catalog)
