@@ -2,20 +2,27 @@
 *.dart linguist-language=Dart
 *.go linguist-language=Go
 
-# Исключаем платформенные исходники Flutter, если не используешь
+# Исключаем платформенные исходники Flutter
 android/ linguist-vendored
 ios/ linguist-vendored
 macos/ linguist-vendored
 windows/ linguist-vendored
 linux/ linguist-vendored
 
-# Исключаем папки сборки и служебные
+# Исключаем папки сборки и кэши
 build/ linguist-generated
 .dart_tool/ linguist-generated
 .flutter-plugins linguist-generated
 .flutter-plugins-dependencies linguist-generated
 .pub-cache/ linguist-generated
+.pub/ linguist-generated
 
 # Исключаем IDE и редакторы
 .idea/ linguist-vendored
 .vscode/ linguist-vendored
+*.iml linguist-vendored
+
+# Исключаем другие файлы
+*.lock linguist-generated
+*.yaml linguist-vendored
+*.html linguist-vendored
