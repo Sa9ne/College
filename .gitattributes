@@ -1,39 +1,32 @@
-# Основные языки проекта
+### Основные языки ###
 *.dart linguist-language=Dart
 *.go linguist-language=Go
 
-# === Жёстко исключаем ВЕСЬ нативный код ===
+### Полное исключение нативных файлов ###
 android/** linguist-generated
 ios/** linguist-generated
 macos/** linguist-generated
 windows/** linguist-generated
 linux/** linguist-generated
 
-# Блокируем конкретные расширения (C++, Swift, CMake, Kotlin и др.)
+### Явное исключение C++/CMake ###
 *.cpp linguist-generated
 *.h linguist-generated
+*.cxx linguist-generated
 *.hpp linguist-generated
-*.swift linguist-generated
-*.kt linguist-generated
-*.m linguist-generated
-*.c linguist-generated
 CMakeLists.txt linguist-generated
 *.cmake linguist-generated
-*.gradle linguist-generated
-*.pbxproj linguist-generated
-*.xcconfig linguist-generated
 
-# Исключаем сборки, кэши, IDE
+### Дополнительные папки (если нашли файлы) ###
+third_party/** linguist-generated
+external/** linguist-generated
+cmake/** linguist-generated
+
+### Всё остальное ###
 build/** linguist-generated
 .dart_tool/** linguist-generated
 .pub/** linguist-generated
 .idea/** linguist-vendored
 .vscode/** linguist-vendored
-
-# Игнорируем конфиги и временные файлы
 *.yaml linguist-vendored
-*.yml linguist-vendored
-*.html linguist-vendored
 *.lock linguist-generated
-*.iml linguist-vendored
-*.json linguist-vendored
