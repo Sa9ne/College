@@ -2,21 +2,33 @@
 *.dart linguist-language=Dart
 *.go linguist-language=Go
 
-# Исключить ВСЕ нативные файлы Flutter
-android/** linguist-vendored
-ios/** linguist-vendored
-macos/** linguist-vendored
-windows/** linguist-vendored
-linux/** linguist-vendored
+# === Явно помечаем нативные файлы как сгенерированные ===
+# Исключаем весь нативный код Flutter (C++, Swift, Kotlin и др.)
+android/** linguist-generated
+ios/** linguist-generated
+macos/** linguist-generated
+windows/** linguist-generated
+linux/** linguist-generated
 
-# Исключить сборки, кэши и IDE
+# Исключаем конкретные расширения (на всякий случай)
+*.cpp linguist-generated
+*.h linguist-generated
+*.swift linguist-generated
+*.kt linguist-generated
+*.m linguist-generated
+*.c linguist-generated
+CMakeLists.txt linguist-generated
+*.gradle linguist-generated
+*.pbxproj linguist-generated
+
+# Исключаем сборки, кэши и IDE
 build/** linguist-generated
 .dart_tool/** linguist-generated
 .pub/** linguist-generated
 .idea/** linguist-vendored
 .vscode/** linguist-vendored
 
-# Исключить служебные файлы (YAML, HTML, lock-файлы)
+# Исключаем служебные файлы
 *.yaml linguist-vendored
 *.yml linguist-vendored
 *.html linguist-vendored
