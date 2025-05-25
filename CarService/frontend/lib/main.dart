@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/Screens/Car_Service_Screen.dart';
 
 void main() {
   runApp(const CarService());
@@ -16,32 +17,8 @@ class CarService extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const HigherMenu(),
+      home: CarServiceScreen()
     );
   }
 }
 
-class HigherMenu extends StatelessWidget {
-  const HigherMenu({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: const Padding(
-          padding: EdgeInsets.only(left: 8.0),
-          child: Text(
-            'Сервис Подержаных авто',
-            style: TextStyle(
-              fontSize: 28,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            )
-          ),
-        ),
-        centerTitle: false,
-      )
-    );
-  }
-}

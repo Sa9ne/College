@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar ({super.key});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 4);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+    backgroundColor: Color.fromARGB(255, 27, 27, 27),
+      title: const Padding(
+        padding: EdgeInsets.only(left: 8.0),
+        child: Text(
+          'Сервис авто "Третьяков"',
+          style: TextStyle(
+            fontSize: 28,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          )
+        ),
+      ),
+      centerTitle: false,
+      actions: [
+        InkResponse(
+          borderRadius: BorderRadius.circular(12),
+          splashColor: Colors.green.withValues(alpha: 0.3),
+          highlightColor: Colors.green.withValues(alpha: 0.3),
+          radius: 20,
+          onTap: () {
+            //TODO:
+          },
+          child: SizedBox(
+            width: 56,
+            height: 56,
+            child: Center(
+                child: const Icon(Icons.account_circle, color: Colors.white, size: 42)
+              ) 
+            )
+        )
+      ],
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(4.0),
+        child: Container(
+          height: 4.0,
+          color: Colors.green,
+        ),
+      ),
+    );
+  }
+}
