@@ -10,36 +10,42 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
     backgroundColor: Color.fromARGB(255, 27, 27, 27),
-      title: const Padding(
-        padding: EdgeInsets.only(left: 8.0),
-        child: Text(
-          'Сервис авто "Третьяков"',
-          style: TextStyle(
-            fontSize: 28,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          )
-        ),
+      title: Row(
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: Text(
+              'Сервис авто "Третьяков"',
+              style: TextStyle(
+                fontSize: 28,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              )
+            ),
+          ),
+          const SizedBox(width: 26),
+          TextButton(
+            onPressed: () {
+              // TODO: Do func
+            },
+            style: ButtonStyle(
+              foregroundColor: WidgetStateProperty.resolveWith<Color>(
+                (Set<WidgetState> states) {
+                  if (states.contains(WidgetState.hovered)) {
+                    return Colors.green;
+                  }
+                return Colors.white;
+              },),
+            ),
+            child: const Text(
+              'Каталог',
+              style: TextStyle(fontSize: 18),
+            ),
+          ),
+      
+        ],
       ),
       centerTitle: false,
-      actions: [
-        InkResponse(
-          borderRadius: BorderRadius.circular(12),
-          splashColor: Colors.green.withValues(alpha: 0.3),
-          highlightColor: Colors.green.withValues(alpha: 0.3),
-          radius: 20,
-          onTap: () {
-            //TODO:
-          },
-          child: SizedBox(
-            width: 56,
-            height: 56,
-            child: Center(
-                child: const Icon(Icons.account_circle, color: Colors.white, size: 42)
-              ) 
-            )
-        )
-      ],
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(4.0),
         child: Container(
