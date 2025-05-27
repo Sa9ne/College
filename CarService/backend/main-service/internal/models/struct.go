@@ -11,7 +11,7 @@ type Client struct {
 }
 
 type Car struct {
-	VIN          int    `json:"vin"`
+	VIN          int    `json:"vin" gorm:"primaryKey"`
 	Brand        string `json:"brand"`
 	Name         string `json:"name"`
 	Power        int    `json:"power"`
@@ -23,4 +23,13 @@ type Car struct {
 	Owners       int    `json:"owner"`
 	BoughtStatus bool   `json:"boughtStatus"`
 	Img          string `json:"img"`
+}
+
+type Orders struct {
+	ID        uint      `json:"id" gorm:"primaryKey"`
+	VIN       int       `json:"vin"`
+	Name      string    `json:"name"`
+	Brand     string    `json:"brand"`
+	Phone     string    `json:"phone"`
+	CreatedAt time.Time `json:"bought_at"`
 }
