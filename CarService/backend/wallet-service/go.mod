@@ -2,7 +2,7 @@ module wallet-service
 
 go 1.24.2
 
-require github.com/gin-gonic/gin v1.10.0
+require github.com/gin-gonic/gin v1.10.1
 
 require (
 	github.com/jackc/pgpassfile v1.0.0 // indirect

@@ -1,17 +1,26 @@
 package models
 
-type Users struct {
-	Id       uint   `json:"id" gorm:"primaryKey"`
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
-	Wallet   int    `json:"wallet"`
+import "time"
+
+type Client struct {
+	ID        uint      `json:"id" gorm:"primaryKey"`
+	Name      string    `json:"name"`
+	Surname   string    `json:"surname"`
+	Birthdate time.Time `gorm:"type:date"`
+	Phone     string    `json:"phone"`
 }
 
 type Car struct {
-	Id      uint   `json:"id" gorm:"primaryKey"`
-	Name    string `json:"name"`
-	Price   int    `json:"price"`
-	Mileage int    `json:"mileage"`
-	Year    int    `json:"Year"`
+	VIN          int    `json:"vin"`
+	Brand        string `json:"brand"`
+	Name         string `json:"name"`
+	Power        int    `json:"power"`
+	Color        string `json:"color"`
+	Price        int    `json:"price"`
+	Mileage      int    `json:"mileage"`
+	Year         int    `json:"year"`
+	Condition    string `json:"condition"`
+	Owners       int    `json:"owner"`
+	BoughtStatus bool   `json:"boughtStatus"`
+	Img          string `json:"img"`
 }
