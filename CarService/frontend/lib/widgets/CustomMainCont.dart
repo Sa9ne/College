@@ -6,40 +6,64 @@ class CarAdvertisement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox.expand(
-      child: Row(
+      child: Stack(
         children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Colors.green
-            ),
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: Colors.green
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: Color.fromARGB(255, 27, 27, 27),
+                )
+              ),
+            ]
           ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Color.fromARGB(255, 27, 27, 27),
-
-              child: Stack(
+          
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Transform.translate(
-                    offset: const Offset(-40, 0),
-                    child: Image.asset(
-                      'assets/CarRight.png',
-                      width: double.infinity,
-                      height: double.infinity,
+                  ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return LinearGradient(
+                        colors: [Colors.black, Colors.green],
+                        stops: [0.5, 0.5],
+                      ).createShader(bounds);
+                    },
+                    blendMode: BlendMode.srcIn,
+                    child: const Text(
+                      'Большой выбор\n        На любой вкус',
+                      style: TextStyle(
+                        fontSize: 58,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
+                      ),
                     ),
                   ),
 
-                  Positioned(
-                    left: 20,
-                    bottom: 450,
-                    child: Text(
-                      'выбор',
-                      style: TextStyle(
-                        color: Colors.green,
-                        fontSize: 48
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/CarLeft.png',
+                        height: MediaQuery.of(context).size.height * 0.6,
+                        width: MediaQuery.of(context).size.width * 0.3,
                       ),
-                    ),
+
+                      Image.asset(
+                        'assets/CarRight.png',
+                        height: MediaQuery.of(context).size.height * 0.6,
+                        width: MediaQuery.of(context).size.width * 0.3,
+                      )
+                    ],
                   )
                 ],
               )
