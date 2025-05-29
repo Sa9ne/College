@@ -36,21 +36,55 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   }
                 return Colors.white;
               },),
+              overlayColor: WidgetStateProperty.all(Colors.transparent)
             ),
             child: const Text(
               'Каталог',
               style: TextStyle(fontSize: 18),
             ),
           ),
-      
+          const SizedBox(width: 26),
+          TextButton(
+            onPressed: () {
+              // TODO:
+            },
+            style: ButtonStyle(
+              foregroundColor: WidgetStateProperty.resolveWith<Color>(
+                (Set<WidgetState> states) {
+                  if (states.contains(WidgetState.hovered)) {
+                    return Colors.green;
+                  }
+                  return Colors.white;
+                }
+              ),
+              overlayColor: WidgetStateProperty.all(Colors.transparent)
+            ),
+            child: const Text(
+              'О нас',
+              style: TextStyle(fontSize: 18),
+            )
+          ),
+          const Spacer(),
+          const Text(
+            '+7 908 254 31 81',
+            style: TextStyle(fontSize: 18, color: Colors.white )
+          )
         ],
       ),
       centerTitle: false,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(4.0),
-        child: Container(
-          height: 4.0,
-          color: Colors.green,
+        child: Column(
+          children: [
+            Container(
+              height: 4.0,
+              color: Colors.green,
+            ),
+            Container(
+              height: 4.0,
+              color: Color.fromARGB(255, 27, 27, 27),
+            )
+          ],
         ),
       ),
     );
