@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
+import "package:frontend/widgets/AboutUs.dart";
 import "package:frontend/widgets/CustomMainCont.dart";
-import "package:frontend/widgets/Custom_app_bar.dart";
+import "package:frontend/widgets/CustomAppBar.dart";
 
 class CarServiceScreen extends StatelessWidget {
   const CarServiceScreen({super.key});
@@ -9,7 +10,14 @@ class CarServiceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
-      body: const CarAdvertisement()
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            CarAdvertisement(),
+            AboutUs(),
+          ],
+        ),
+      )
     );
   }
 }

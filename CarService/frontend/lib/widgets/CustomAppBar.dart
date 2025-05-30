@@ -46,7 +46,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           const SizedBox(width: 26),
           TextButton(
             onPressed: () {
-              // TODO:
+
             },
             style: ButtonStyle(
               foregroundColor: WidgetStateProperty.resolveWith<Color>(

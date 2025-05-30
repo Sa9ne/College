@@ -5,7 +5,8 @@ class CarAdvertisement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return SizedBox(
+      height: 750,
       child: Stack(
         children: [
           Row(
