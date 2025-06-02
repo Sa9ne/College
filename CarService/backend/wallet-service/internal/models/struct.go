@@ -27,7 +27,7 @@ type Car struct {
 
 type Orders struct {
 	ID        uint      `json:"id" gorm:"primaryKey"`
-	VIN       int       `json:"vin"`
+	VIN       string    `json:"vin"`
 	Name      string    `json:"name"`
 	Brand     string    `json:"brand"`
 	Phone     string    `json:"phone"`
