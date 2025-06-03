@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:frontend/widgets/AboutUs.dart";
 import "package:frontend/widgets/CustomMainCont.dart";
 import "package:frontend/widgets/CustomAppBar.dart";
+import 'package:frontend/widgets/Catalog.dart';
 
 class CarServiceScreen extends StatelessWidget {
   const CarServiceScreen({super.key});
@@ -14,6 +15,7 @@ class CarServiceScreen extends StatelessWidget {
         child: Column(
           children: [
             CarAdvertisement(),
+            Catalog(),
             AboutUs(),
           ],
         ),

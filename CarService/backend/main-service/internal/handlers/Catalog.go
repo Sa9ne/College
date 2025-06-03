@@ -15,5 +15,5 @@ func Catalog(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"Cars": Cars})
+	ctx.JSON(http.StatusOK, Cars)
 }

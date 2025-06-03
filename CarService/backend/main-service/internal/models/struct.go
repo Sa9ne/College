@@ -11,7 +11,7 @@ type Client struct {
 }
 
 type Car struct {
-	VIN          int    `json:"vin" gorm:"primaryKey"`
+	VIN          string `json:"vin" gorm:"primaryKey"`
 	Brand        string `json:"brand"`
 	Name         string `json:"name"`
 	Power        int    `json:"power"`
