@@ -10,7 +10,9 @@ import (
 
 func Catalog(ctx *gin.Context) {
 	var Cars []models.Car
-	if err := database.DB.Find(&Cars).Error; err != nil {
+
+	// Check bought status car and show result
+	if err := database.DB.Where("bought_status = ?", false).Find(&Cars).Error; err != nil {
 		ctx.JSON(http.StatusNotFound, gin.H{"error": "Not Found"})
 		return
 	}
