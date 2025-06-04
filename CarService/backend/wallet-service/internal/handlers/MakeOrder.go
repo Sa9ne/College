@@ -31,13 +31,15 @@ func MakeOrder(ctx *gin.Context) {
 		return
 	}
 
-	var client models.Client
-
 	// Check phone number
+	var client models.Client
 	if err := database.DB.First(&client, "phone = ?", req.Phone).Error; err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Incorrect phone request"})
 		return
 	}
+
+	req.Brand = car.Brand
+	req.Name = car.Name
 
 	// Add order
 	if err := database.DB.Create(&req).Error; err != nil {

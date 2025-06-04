@@ -5,6 +5,7 @@ import (
 	"wallet-service/internal/database"
 	"wallet-service/internal/handlers"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,6 +13,8 @@ func Start() {
 	s := gin.Default()
 
 	database.ConnectDB()
+
+	s.Use(cors.Default())
 
 	s.POST("/MakeOrder", handlers.MakeOrder)
 	s.POST("/AddClient", handlers.AddClient)

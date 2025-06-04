@@ -6,7 +6,7 @@ type Client struct {
 	ID        uint      `json:"id" gorm:"primaryKey"`
 	Name      string    `json:"name"`
 	Surname   string    `json:"surname"`
-	Birthdate time.Time `gorm:"type:date"`
+	Birthdate time.Time `json:"birthdate"`
 	Phone     string    `json:"phone"`
 }
 

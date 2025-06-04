@@ -42,5 +42,5 @@ func AddClient(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"message": "Client created successful"})
+	ctx.JSON(http.StatusOK, gin.H{"id": req.ID})
 }

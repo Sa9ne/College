@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/models/car.dart';
 import 'package:frontend/services/api_service.dart';
+import 'package:frontend/widgets/Client.dart';
 
 class Catalog extends StatefulWidget {
   const Catalog({super.key});
@@ -123,9 +124,7 @@ class CarCard extends StatelessWidget {
                   width: 140,
                   height: 50,
                   child: OutlinedButton(
-                    onPressed: () {
-                      // действие при заказе
-                    },
+                    onPressed: () => showClientFormDialog(context, car.vin),
                     style: OutlinedButton.styleFrom(
                       side: const BorderSide(color: Colors.green, width: 2),
                       foregroundColor: Colors.black,
