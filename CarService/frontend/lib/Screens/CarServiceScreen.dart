@@ -5,13 +5,16 @@ import "package:frontend/widgets/CustomAppBar.dart";
 import 'package:frontend/widgets/Catalog.dart';
 
 class CarServiceScreen extends StatelessWidget {
-  const CarServiceScreen({super.key});
+  CarServiceScreen({super.key});
+
+  final ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(scrollController: _scrollController,),
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             CarAdvertisement(),

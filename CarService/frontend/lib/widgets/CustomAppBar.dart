@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar ({super.key});
+  final ScrollController scrollController;
+
+  const CustomAppBar({super.key, required this.scrollController});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 4);
@@ -26,7 +28,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           const SizedBox(width: 26),
           TextButton(
             onPressed: () {
-              // TODO: Do func
+               scrollController.animateTo(
+                770,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
             },
             style: ButtonStyle(
               foregroundColor: WidgetStateProperty.resolveWith<Color>(
@@ -46,7 +52,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           const SizedBox(width: 26),
           TextButton(
             onPressed: () {
-
+                scrollController.animateTo(
+                scrollController.position.maxScrollExtent,
+                duration: const Duration(milliseconds: 600),
+                curve: Curves.easeInOut,
+              );
             },
             style: ButtonStyle(
               foregroundColor: WidgetStateProperty.resolveWith<Color>(
