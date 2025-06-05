@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:frontend/models/car.dart';
+import 'package:frontend/models/order.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<Car>> fetchCars() async {
@@ -45,4 +46,18 @@ Future<bool> makeOrder(int clientId, String carVin, String phone) async {
   }
 
   return response.statusCode == 200;
+}
+
+Future<List<Order>> ShowBoughtCar() async {
+  final response = await http.get(
+    Uri.parse('http://localhost:8080/BoughtCatalog'),
+    headers: {'Content-Type': 'application/json'},
+  );
+
+  if (response.statusCode != 200) {
+    throw Exception("Failed to load orders");
+  }
+
+  final List<dynamic> jsonData = json.decode(response.body);
+  return jsonData.map((e) => Order.fromJson(e)).toList();
 }

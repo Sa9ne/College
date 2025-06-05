@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/BoughtCar.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ScrollController scrollController;
@@ -71,6 +72,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             child: const Text(
               'О нас',
+              style: TextStyle(fontSize: 18),
+            )
+          ),
+          const SizedBox(width: 26),
+          TextButton(
+            onPressed: () => showMyDialog(context),
+            style: ButtonStyle(
+              foregroundColor: WidgetStateProperty.resolveWith<Color>(
+                (Set<WidgetState> states) {
+                  if (states.contains(WidgetState.hovered)) {
+                    return Colors.green;
+                  }
+                  return Colors.white;
+                }
+              ),
+              overlayColor: WidgetStateProperty.all(Colors.transparent)
+            ),
+            child: const Text(
+              'Заказы',
               style: TextStyle(fontSize: 18),
             )
           ),

@@ -20,6 +20,7 @@ func Start() {
 
 	s.GET("/", handlers.LoadFrontend)
 	s.GET("/Catalog", handlers.Catalog)
+	s.GET("/BoughtCatalog", handlers.BoughtCatalog)
 
 	err := s.Run(":8080")
 	if err != nil {
