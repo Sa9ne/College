@@ -21,7 +21,7 @@ type Car struct {
 	Year         int    `json:"year"`
 	Condition    string `json:"condition"`
 	Owners       int    `json:"owner"`
-	BoughtStatus bool   `json:"boughtStatus"`
+	BoughtStatus bool   `json:"boughtStatus" gorm:"column:bought_status"`
 	Img          string `json:"img"`
 }
 

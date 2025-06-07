@@ -41,8 +41,9 @@ Future<void> showMyDialog(BuildContext context) async {
                             Text(
                               "Номер заказа: ${order.id}",
                               style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500
+                              ),
                             ),
                             const SizedBox(height: 8),
                             Text("Бренд: ${order.brand}", style: const TextStyle(fontSize: 16)),
@@ -51,6 +52,37 @@ Future<void> showMyDialog(BuildContext context) async {
                             Text(
                               "Номер клиента: ${order.phone}",
                               style: const TextStyle(fontSize: 16, color: Colors.grey),
+                            ),
+                            const SizedBox(height: 16),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: OutlinedButton(
+                                style: ButtonStyle(
+                                  side: WidgetStateProperty.all(
+                                    const BorderSide(color: Colors.green),
+                                  ),
+                                  foregroundColor: WidgetStateProperty.all(Colors.black),
+                                  overlayColor: WidgetStateProperty.resolveWith<Color?>(
+                                    (states) {
+                                      if (states.contains(WidgetState.hovered)) {
+                                        return Colors.grey.withOpacity(0.2);
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                                onPressed: () async {
+                                  final success = await cancelOrder(order.id);
+                                  if (success) {
+                                    Navigator.of(context).pop();
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('Ошибка при отмене заказа')),
+                                    );
+                                  }
+                                },
+                                child: const Text("Отменить заказ"),
+                              )
                             ),
                           ],
                         ),

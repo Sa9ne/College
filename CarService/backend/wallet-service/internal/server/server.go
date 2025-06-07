@@ -18,6 +18,7 @@ func Start() {
 
 	s.POST("/MakeOrder", handlers.MakeOrder)
 	s.POST("/AddClient", handlers.AddClient)
+	s.DELETE("/DeletedOrder/:id", handlers.DeleteOrder)
 
 	err := s.Run(":8081")
 	if err != nil {

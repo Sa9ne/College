@@ -61,3 +61,12 @@ Future<List<Order>> ShowBoughtCar() async {
   final List<dynamic> jsonData = json.decode(response.body);
   return jsonData.map((e) => Order.fromJson(e)).toList();
 }
+
+Future<bool> cancelOrder(int orderId) async {
+  final response = await http.delete(
+    Uri.parse('http://localhost:8081/DeletedOrder/$orderId'),
+    headers: {'Content-Type': 'application/json'},
+  );
+
+  return response.statusCode == 200;
+}
