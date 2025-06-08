@@ -22,7 +22,6 @@ type Car struct {
 	Condition    string `json:"condition"`
 	Owners       int    `json:"owner"`
 	BoughtStatus bool   `json:"boughtStatus" gorm:"column:bought_status"`
-	Img          string `json:"img"`
 }
 
 type Orders struct {
