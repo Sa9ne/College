@@ -65,7 +65,7 @@ func main() {
 	p.X.Label.Text = "Попытка"
 	p.Y.Label.Text = "Время (секунды)"
 
-	err := plotutil.AddLinePoints(p, "Сортировка", points)
+	err := plotutil.AddLinePoints(p, points)
 	if err != nil {
 		panic(err)
 	}
