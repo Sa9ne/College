@@ -12,8 +12,8 @@ type Character struct {
 }
 
 // Создаем нового персонажа
-func NewCharacter(StartX int, StartY int) Character {
-	return Character{X: StartX, Y: StartY}
+func NewCharacter(X int, Y int) Character {
+	return Character{X: X, Y: Y}
 }
 
 // Рисуем игровое поле
