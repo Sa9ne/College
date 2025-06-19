@@ -22,8 +22,6 @@ func Sort(Mas []int, Low int, High int) {
 		return
 	}
 
-	fmt.Println(Mas)
-
 	Wall := Low        // Стена
 	Pivot := Mas[High] // Последний элемент массива
 
@@ -34,9 +32,6 @@ func Sort(Mas []int, Low int, High int) {
 
 			// Переносим стену дальше, что бы первый элемент массива больше не трогали
 			Wall++
-
-			// Для наглядности выведу сам массив
-			fmt.Println(Mas)
 		}
 	}
 
@@ -57,12 +52,14 @@ func main() {
 	fmt.Print("Введите верхнюю границу: ")
 	fmt.Scan(&Upper)
 
-	for i := 0; i < 3; i++ {
+	MasDlin := 100
+
+	for range 7 {
 		// Генерация рандома и занесения в массив
 		var Mas []int
 
 		// Взял 6 как длину массива, не очень понял что именно нужно взять
-		for i := 0; i < 6; i++ {
+		for i := 0; i < MasDlin; i++ {
 			Random := rand.Intn(Upper-Lower+1) + Lower
 			Mas = append(Mas, Random)
 		}
@@ -70,14 +67,14 @@ func main() {
 		// Засекаем время
 		TimeStart := time.Now()
 		Sort(Mas, 0, len(Mas)-1)
-		Duration := time.Since(TimeStart).Seconds()
+		Duration := float64(time.Since(TimeStart).Microseconds()) / 1000.0 // в миллисекундах
 
 		points = append(points, plotter.XY{
-			X: float64(i + 1), // номер попытки
+			X: float64(MasDlin), // номер попытки
 			Y: Duration,
 		})
 
-		fmt.Printf("Прошло времени с момента начала: %.6f секунд\n", Duration)
+		MasDlin += 200
 	}
 
 	// Рисуем график

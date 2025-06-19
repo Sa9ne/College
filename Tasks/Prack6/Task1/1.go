@@ -23,25 +23,24 @@ func Sort(Mas []int) {
 			}
 		}
 	}
-	// Хочу глянуть сам массив
-	fmt.Println(Mas)
 }
 
 func main() {
 	var Lower, Upper int
 	var points plotter.XYs
-	fmt.Println("Введите нижнюю границу")
+	fmt.Print("Введите нижнюю границу: ")
 	fmt.Scan(&Lower)
 
-	fmt.Println("Введите верхнюю границу")
+	fmt.Print("Введите верхнюю границу: ")
 	fmt.Scan(&Upper)
 
-	for i := 0; i < 3; i++ {
+	MasDlin := 100
+
+	for range 7 {
 		// Генерация рандома и занесения в массив
 		var Mas []int
 
-		// Взял 20 как длину массива, не очень понял что именно нужно взять
-		for i := 0; i < 20; i++ {
+		for i := 0; i < MasDlin; i++ {
 			Random := rand.Intn(Upper-Lower+1) + Lower
 			Mas = append(Mas, Random)
 		}
@@ -49,14 +48,14 @@ func main() {
 		// Засекаем время
 		TimeStart := time.Now()
 		Sort(Mas)
-		Duration := time.Since(TimeStart).Seconds()
+		Duration := float64(time.Since(TimeStart).Microseconds()) / 1000.0 // в миллисекундах
 
 		points = append(points, plotter.XY{
-			X: float64(i + 1), // номер попытки
+			X: float64(MasDlin),
 			Y: Duration,
 		})
 
-		fmt.Printf("Прошло времени с момента начала: %.6f секунд\n", Duration)
+		MasDlin += 200
 	}
 
 	// Рисуем график
@@ -71,7 +70,7 @@ func main() {
 	}
 
 	// Сохраняем график в файл
-	if err := p.Save(6*vg.Inch, 4*vg.Inch, "output.png"); err != nil {
+	if err := p.Save(8*vg.Inch, 6*vg.Inch, "output.png"); err != nil {
 		panic(err)
 	}
 
